@@ -1,0 +1,15 @@
+<!-- Include header -->
+<%- include('../partials/header.ejs') %>
+
+<div id="form-page">
+    <h1>Post Here:</h1>
+    <form action="/submit" method="POST">
+        <input name="name" type="text" class="place-holder" placeholder="Full Name"  required/>
+        <input name="title" type="text" class="place-holder" placeholder="Title" required/>
+        <textarea name="text" class="place-holder text-area" placeholder="Type Your Post..." required></textarea>
+        <input class="btnDesign postBtn" type="submit" value="POST" />
+    </form>
+</div>
+
+<!-- include footer -->
+<%- include('../partials/footer.ejs') %>

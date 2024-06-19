@@ -1,0 +1,65 @@
+<!-- Include header -->
+<%- include('partials/header.ejs') %>
+
+<main>
+
+ <!-- Homepage content -->
+    <div class="img-container">
+        <img src="/images/bird.jpg" alt="bird">
+    </div>
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Search Post">
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+
+    <!-- Recent posts -->
+    <div class="second-container">
+        <div class="col">
+            <div class="icons">
+            <ul>
+                <li class="side-nav"><a href="/"><i class="fas fa-home"></i> Home</a></li>
+
+                <li class="side-nav"><a href="/contact"> <i class="fas fa-envelope"></i> Contact</a></li>
+                
+                <li class="side-nav"><a href="/about"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="col col1">
+            <h1>Recent Posts</h1>
+            <div class="blog-posts">
+                <% if (locals.name && locals.title && locals.text){ %>
+                    <div class="blog-post-title">
+                        <h2><%= title%></h2>
+                    </div>
+                    <div class="blog-post-content">
+                        <p><%= text%></p>
+                    </div>
+                    <div class="blog-post-user">
+                        <p><%= name%></p>
+                    </div>
+                    <div class="blog-post-date">
+                        <p><%= new Date().getMonth() %> / <%= new Date().getDay() %> / <%= new Date().getFullYear()%></p>
+                    </div>
+                    <div class="blog-edit-delete">
+                        <a href='/delete'><button><i class="fas fa-trash-alt"></i></button></a>
+                        <span> | </span>
+                        <a href="/edit"><button><i class=" fas fa-edit"></i></button></a>
+               
+                    </div>
+                <% } else {%>
+                <p>No posts yet</p>
+            <% } %>
+            </div>
+        </div>
+        <div class="col col2">
+            <h1>Create Your Post</h1>
+
+            <a href="/posts"><button class="btnDesign"><i class="fas fa-plus"></i> Create Post</button></a>
+               
+          
+        </div>
+    </div>
+   
+<!-- include footer -->
+<%- include('partials/footer.ejs') %>
